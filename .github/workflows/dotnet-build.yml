@@ -1,22 +1,20 @@
-name: Workflow Automatizado
+name: 'Automated Workflow'
+
 on:
   push:
     branches:
-    - main
+      - main
   schedule:
-    - cron: '0 ****' Rodas a cada hora
-  jobs:
-    executar: 
-      runs-on: ubuntu-latest
+    - cron: '0 * * * *'  # Executa a cada hora
 
-      steps: 
-       - name: checkout do código
-         uses: actions/checkout@v4
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-       - name: Executar script personalizado
-         run: |
-          echo "Início do script personalizado"
-          echo "Data e hora atual:"
-          date
-          echo "Listando arquivos do repositórios:"
-          ls -la
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v2
+
+      - name: Executar script personalizado
+        run: |
+          echo "Workflow executado com sucesso!"
