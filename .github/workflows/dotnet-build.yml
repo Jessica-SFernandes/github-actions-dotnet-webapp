@@ -4,7 +4,7 @@ on:
     branches:
     - main
   schedule:
-    - cron: '0****' # Executa a cada hora
+    - cron: '0 ****' Rodas a cada hora
   jobs:
     executar: 
       runs-on: ubuntu-latest
@@ -20,4 +20,3 @@ on:
           date
           echo "Listando arquivos do repositórios:"
           ls -la
-          
